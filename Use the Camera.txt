@@ -1,0 +1,56 @@
+#  Use the Camera
+The camera itself won't be much creative but the function we create could be more fun. Now we are going to explore the fun to program the camera
+### Water Color Challenge
+
+Use this #python code at **VSCode** console 
+
+	from picamera import PiCamera
+	import time
+	camera = PiCamera()
+	camera.resolution = (1280, 720)
+	camera.vflip = True
+	camera.contrast = 10
+	camera.image_effect = "watercolor"
+	time.sleep(2)
+	camera.capture("./img.jpg")
+	print("Done.") 
+
+![](https://p10.tr2.n0.cdn.getcloudapp.com/items/E0uoNv9p/a763adc8-2164-4895-8504-269df6c0fa5d.jpg?v=2fd5a02db9b40e71aba4603572f3fa35)
+
+Get the image like this
+
+![picture](https://p10.tr2.n0.cdn.getcloudapp.com/items/yAukgq6d/e48c2931-c64a-4e2b-a757-7e3582dd1b10.jpg?v=7626056392bf9eadc840cd6f3fa28735)
+
+If you need more functions like watercolor look [here](https://picamera.readthedocs.io/en/release-1.13/api_camera.html#)
+
+### More functions from the developer
+
+For example we use a new function to capture a sequence of images
+
+	import time
+	import picamera
+	with picamera.PiCamera() as camera:
+	    camera.start_preview()
+	    try:
+	        for i, filename in enumerate(
+	                camera.capture_continuous('image{counter:02d}.jpg')):
+	            print(filename)
+	            time.sleep(1)
+	            if i == 59:
+	                break
+	    finally:
+	        camera.stop_preview()
+
+![](https://p10.tr2.n0.cdn.getcloudapp.com/items/DOumLYqQ/b4ed78f4-f2a7-4d10-b048-3e3fdb65b727.gif?v=aa5ba2cd7c047b301826cba83590c9b4)
+
+
+
+
+
+
+
+
+
+
+[ref][https://roboticsbackend.com/raspberry-pi-camera-picamera-python-library/]
+[ref][https://picamera.readthedocs.io/en/release-1.13/api_color.html]
