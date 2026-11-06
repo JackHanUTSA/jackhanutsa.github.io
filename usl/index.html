@@ -1125,34 +1125,6 @@ tr.is-this-week td {
     font-size: 1.125rem;
   }
 }
-.hero-side {
-  padding: 1.25rem;
-  border-radius: 1rem;
-  background: rgb(255 255 255 / 0.05);
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.15);
-}
-.stats-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 0;
-}
-.stats-2 dd {
-  font-size: 1.875rem;
-}
-.stats-2 dt {
-  font-size: 0.75rem;
-}
-.hero-latest {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgb(255 255 255 / 0.15);
-}
-.hero-latest .kicker {
-  display: block;
-}
-.hero-latest a {
-  color: #fff;
-  text-underline-offset: 3px;
-}
 .direction {
   display: grid;
   gap: 1rem;
@@ -1268,13 +1240,111 @@ tr.is-this-week td {
   color: var(--accent-ink);
 }
 
+/* MeMDRL-style hero art, icon tiles, and sponsor panel */
+.hero-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.icon-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 15rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--mist);
+}
+@media (max-width: 767.98px) {
+  .icon-frame {
+    max-width: 12rem;
+  }
+}
+.icon-tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 7rem;
+  border: 1px dashed rgb(29 78 137 / 0.25);
+  border-radius: 50%;
+  color: var(--navy-900);
+}
+.icon-tile::before {
+  content: "";
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow), 0 0 0 1px var(--line);
+}
+.icon-tile::after {
+  content: "";
+  position: absolute;
+  top: 0.375rem;
+  right: 0.375rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--orange-500);
+}
+.icon-tile svg {
+  position: relative;
+}
+.sponsor-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+@media (min-width: 640px) {
+  .sponsor-panel {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .sponsor-panel {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+.sponsor-panel li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.5rem;
+  padding: 0.75rem;
+  background: #fff;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--navy-900);
+}
+.brand-sub {
+  white-space: nowrap;
+}
+@media (max-width: 479.98px) {
+  .brand-sub {
+    display: none;
+  }
+}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-bar">
-    <a class="brand" href="#top"><span class="brand-badge" aria-hidden="true">USL</span><span class="brand-mark">Unmanned Systems Lab</span></a>
+    <a class="brand" href="#top"><span class="brand-badge" aria-hidden="true">USL</span><span class="brand-mark">Unmanned Systems Lab</span><span class="brand-sub">UT San Antonio</span></a>
     <nav aria-label="Page sections"><ul><li><a href="#top">Home</a></li><li><a href="#research">Research</a></li><li><a href="#publications">Publications</a></li><li><a href="#people">People</a></li><li><a href="#news">News</a></li><li><a href="#join">Join</a></li><li><a href="#contact">Contact</a></li></ul></nav>
   </div>
 </header>
@@ -1289,11 +1359,12 @@ tr.is-this-week td {
       <p class="actions">
         <a class="btn btn-accent" href="#research">Explore our research <span aria-hidden="true">→</span></a>
         <a class="btn btn-dark" href="#join">Join the lab</a>
+        <a class="btn btn-dark" href="#publications">Publications</a>
       </p>
     </div>
     <div class="hero-side">
-      <dl class="stats stats-2"><div><dt>Current members</dt><dd>12</dd></div><div><dt>Alumni</dt><dd>30</dd></div><div><dt>Journal articles</dt><dd>57</dd></div><div><dt>Conference papers</dt><dd>103</dd></div></dl>
-      <p class="hero-latest"><span class="kicker kicker-dark">Latest · October 2026</span><a href="#news-2026-10-usls-work-was-featured-by-texas-standard">USL’s work was featured by Texas Standard</a></p>
+      <div class="hero-frame"><svg viewBox="0 0 480 280" class="hero-art rounded" role="presentation" aria-hidden="true" focusable="false"><defs><linearGradient id="usl-sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#13305a"></stop><stop offset="1" stop-color="#0c2340"></stop></linearGradient><radialGradient id="usl-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f15a22" stop-opacity="0.35"></stop><stop offset="1" stop-color="#f15a22" stop-opacity="0"></stop></radialGradient><pattern id="usl-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"></path></pattern></defs><rect width="480" height="280" fill="url(#usl-sky)"></rect><rect width="480" height="280" fill="url(#usl-grid)"></rect><ellipse cx="250" cy="150" rx="202" ry="112" fill="none" stroke="#dfe7f2" stroke-opacity="0.12"></ellipse><ellipse cx="250" cy="150" rx="168" ry="82" fill="none" stroke="#dfe7f2" stroke-opacity="0.55" stroke-dasharray="6 7"></ellipse><ellipse cx="250" cy="150" rx="92.4" ry="45.1" fill="none" stroke="#dfe7f2" stroke-opacity="0.2" stroke-dasharray="2 6"></ellipse><circle cx="250" cy="150" r="46" fill="url(#usl-glow)"></circle><circle cx="250" cy="150" r="15" fill="none" stroke="#f7a07a" stroke-opacity="0.8"></circle><circle cx="250" cy="150" r="5.5" fill="#f15a22"></circle><path d="M224 150h10M266 150h10M250 124v10M250 166v10" stroke="#f7a07a" stroke-opacity="0.8" stroke-width="1.5"></path><line x1="250" y1="150" x2="220.8" y2="69.2" stroke="#dfe7f2" stroke-opacity="0.12"></line><line x1="250" y1="150" x2="398.3" y2="111.5" stroke="#dfe7f2" stroke-opacity="0.12"></line><line x1="250" y1="150" x2="370.8" y2="207" stroke="#dfe7f2" stroke-opacity="0.12"></line><line x1="250" y1="150" x2="176.4" y2="223.7" stroke="#dfe7f2" stroke-opacity="0.12"></line><line x1="250" y1="150" x2="83.6" y2="138.6" stroke="#dfe7f2" stroke-opacity="0.12"></line><path d="M267.6,68.4 Q248.20000000000002,72.80000000000001 220.8,69.2" fill="none" stroke="#f7a07a" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round"></path><path d="M414.3,133 Q410.3,126.25 398.3,111.5" fill="none" stroke="#f7a07a" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round"></path><path d="M334,221 Q356.4,218 370.8,207" fill="none" stroke="#f7a07a" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round"></path><path d="M137.6,210.9 Q161,221.3 176.4,223.7" fill="none" stroke="#f7a07a" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round"></path><path d="M96.5,116.6 Q94.05,131.6 83.6,138.6" fill="none" stroke="#f7a07a" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round"></path><path d="M0,-13 C1.6,-13 2.4,-11 2.4,-8 L2.4,-3 L13,3 L13,6 L2.4,3 L1.8,9 L5,11.5 L5,13.5 L0,12.4 L-5,13.5 L-5,11.5 L-1.8,9 L-2.4,3 L-13,6 L-13,3 L-2.4,-3 L-2.4,-8 C-2.4,-11 -1.6,-13 0,-13 Z" transform="translate(220.8 69.2) rotate(85.1) scale(1.15)" fill="#ffffff"></path><path d="M0,-13 C1.6,-13 2.4,-11 2.4,-8 L2.4,-3 L13,3 L13,6 L2.4,3 L1.8,9 L5,11.5 L5,13.5 L0,12.4 L-5,13.5 L-5,11.5 L-1.8,9 L-2.4,3 L-13,6 L-13,3 L-2.4,-3 L-2.4,-8 C-2.4,-11 -1.6,-13 0,-13 Z" transform="translate(398.3 111.5) rotate(132.6) scale(1)" fill="#ffffff"></path><path d="M0,-13 C1.6,-13 2.4,-11 2.4,-8 L2.4,-3 L13,3 L13,6 L2.4,3 L1.8,9 L5,11.5 L5,13.5 L0,12.4 L-5,13.5 L-5,11.5 L-1.8,9 L-2.4,3 L-13,6 L-13,3 L-2.4,-3 L-2.4,-8 C-2.4,-11 -1.6,-13 0,-13 Z" transform="translate(370.8 207) rotate(243.2) scale(1)" fill="#ffffff"></path><path d="M0,-13 C1.6,-13 2.4,-11 2.4,-8 L2.4,-3 L13,3 L13,6 L2.4,3 L1.8,9 L5,11.5 L5,13.5 L0,12.4 L-5,13.5 L-5,11.5 L-1.8,9 L-2.4,3 L-13,6 L-13,3 L-2.4,-3 L-2.4,-8 C-2.4,-11 -1.6,-13 0,-13 Z" transform="translate(176.4 223.7) rotate(-76.6) scale(1)" fill="#ffffff"></path><path d="M0,-13 C1.6,-13 2.4,-11 2.4,-8 L2.4,-3 L13,3 L13,6 L2.4,3 L1.8,9 L5,11.5 L5,13.5 L0,12.4 L-5,13.5 L-5,11.5 L-1.8,9 L-2.4,3 L-13,6 L-13,3 L-2.4,-3 L-2.4,-8 C-2.4,-11 -1.6,-13 0,-13 Z" transform="translate(83.6 138.6) rotate(16.1) scale(1)" fill="#ffffff"></path><path d="M16 40V16H40M440 16H464V40M464 240V264H440M40 264H16V240" fill="none" stroke="#dfe7f2" stroke-opacity="0.45" stroke-width="1.5"></path></svg></div>
+      <dl class="stats"><div><dt>Current members</dt><dd>12</dd></div><div><dt>Alumni</dt><dd>30</dd></div><div><dt>Journal articles</dt><dd>57</dd></div><div><dt>Conference papers</dt><dd>103</dd></div></dl>
     </div>
   </div>
 </section>
@@ -1304,36 +1375,39 @@ tr.is-this-week td {
 <h2 id="research-h">What we work on</h2>
 <p class="lead">We study how unmanned systems learn, decide, collaborate, and stay safe, and we validate the answers on aircraft we build in the lab.</p>
     <div class="stack">
-      <article id="human-ai-teaming" class="card direction" aria-labelledby="human-ai-teaming-h">
-        <p class="direction-no" aria-hidden="true">01</p>
+      <article id="human-ai-teaming" class="card pillar" aria-labelledby="human-ai-teaming-h">
         <div class="pillar-text">
+          <p class="kicker">Direction 1</p>
           <h3 id="human-ai-teaming-h">Human-guided learning and human–AI teaming</h3>
           <p class="muted">Autonomous systems should reduce an operator’s workload, not add to it, and they should learn what people actually want. We develop methods that learn from human ratings and preferences rather than hand-designed rewards, including rating-based reinforcement learning, multi-task reward learning from human ratings, and preference-based learning for robot behavior. A second line of work models teammates and opponents, from transformer-based agent modeling to retrieval-augmented language models for ad hoc teaming, so that an autonomous agent can coordinate with partners it has not trained with.</p>
-          <ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">rating-based RL</span></li><li><span class="badge badge-gray">preference-based learning</span></li><li><span class="badge badge-gray">reward learning</span></li><li><span class="badge badge-gray">human–AI teaming</span></li><li><span class="badge badge-gray">agent modeling</span></li><li><span class="badge badge-gray">LLM agents</span></li></ul>
+          <p class="small-head">Topics</p><ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">rating-based RL</span></li><li><span class="badge badge-gray">preference-based learning</span></li><li><span class="badge badge-gray">reward learning</span></li><li><span class="badge badge-gray">human–AI teaming</span></li><li><span class="badge badge-gray">agent modeling</span></li><li><span class="badge badge-gray">LLM agents</span></li></ul>
           
         </div>
-      </article><article id="fair-interpretable-rl" class="card direction" aria-labelledby="fair-interpretable-rl-h">
-        <p class="direction-no" aria-hidden="true">02</p>
+        <div class="pillar-img"><div class="icon-frame"><span class="icon-tile" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-handshake" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path><path d="m21 3 1 11h-2"></path><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path><path d="M3 4h8"></path></svg></span></div></div>
+      </article><article id="fair-interpretable-rl" class="card pillar" aria-labelledby="fair-interpretable-rl-h">
         <div class="pillar-text">
+          <p class="kicker">Direction 2</p>
           <h3 id="fair-interpretable-rl-h">Fair, interpretable, and aligned reinforcement learning</h3>
           <p class="muted">Learned policies have to be fair to every objective and stakeholder, understandable to the people who deploy them, and robust once fielded. We study fair policy learning in multi-objective and cooperative multi-agent reinforcement learning, with applications such as traffic control; interpretable reinforcement learning through symbolic policy distillation and model explanations; inference-time policy alignment and multi-criterion alignment of language models; and the adaptation of vision-language-action models when a robot’s body differs from the one they were trained on. Related work covers learning from failure under sparse rewards and event-triggered reinforcement learning for control.</p>
-          <ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">multi-objective RL</span></li><li><span class="badge badge-gray">fairness in RL</span></li><li><span class="badge badge-gray">multi-agent RL</span></li><li><span class="badge badge-gray">interpretable RL</span></li><li><span class="badge badge-gray">inference-time alignment</span></li><li><span class="badge badge-gray">VLA models</span></li></ul>
+          <p class="small-head">Topics</p><ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">multi-objective RL</span></li><li><span class="badge badge-gray">fairness in RL</span></li><li><span class="badge badge-gray">multi-agent RL</span></li><li><span class="badge badge-gray">interpretable RL</span></li><li><span class="badge badge-gray">inference-time alignment</span></li><li><span class="badge badge-gray">VLA models</span></li></ul>
           
         </div>
-      </article><article id="autonomy-guidance-control" class="card direction" aria-labelledby="autonomy-guidance-control-h">
-        <p class="direction-no" aria-hidden="true">03</p>
+        <div class="pillar-img"><div class="icon-frame"><span class="icon-tile" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg></span></div></div>
+      </article><article id="autonomy-guidance-control" class="card pillar" aria-labelledby="autonomy-guidance-control-h">
         <div class="pillar-text">
+          <p class="kicker">Direction 3</p>
           <h3 id="autonomy-guidance-control-h">Autonomy, guidance, control, and multi-agent coordination</h3>
           <p class="muted">The lab has a long record in distributed coordination, consensus, containment, and event-triggered control. Current work is in safety-critical control under input constraints, safety certificates, and energy-efficient flexible leader–follower formation.</p>
-          <ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">autonomy</span></li><li><span class="badge badge-gray">nonlinear guidance</span></li><li><span class="badge badge-gray">formation control</span></li><li><span class="badge badge-gray">event-triggered control</span></li><li><span class="badge badge-gray">safety-critical control</span></li></ul>
+          <p class="small-head">Topics</p><ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">autonomy</span></li><li><span class="badge badge-gray">nonlinear guidance</span></li><li><span class="badge badge-gray">formation control</span></li><li><span class="badge badge-gray">event-triggered control</span></li><li><span class="badge badge-gray">safety-critical control</span></li></ul>
           
         </div>
-      </article><article id="deployment-transition" class="card direction" aria-labelledby="deployment-transition-h">
-        <p class="direction-no" aria-hidden="true">04</p>
+        <div class="pillar-img"><div class="icon-frame"><span class="icon-tile" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-crosshair" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="22" x2="18" y1="12" y2="12"></line><line x1="6" x2="2" y1="12" y2="12"></line><line x1="12" x2="12" y1="6" y2="2"></line><line x1="12" x2="12" y1="22" y2="18"></line></svg></span></div></div>
+      </article><article id="deployment-transition" class="card pillar" aria-labelledby="deployment-transition-h">
         <div class="pillar-text">
+          <p class="kicker">Direction 4</p>
           <h3 id="deployment-transition-h">Deployment and technology transition</h3>
           <p class="muted">We focus on deployment of learning, autonomy, and control models and algorithms on hardware in real-world environments. We build our own small unmanned aircraft, from the airframe to the flight control board, onboard computing, software, and sensing, so new methods go straight from analysis to outdoor flight tests on hardware we fully control. We build the benchmarks, datasets, and test protocols that let someone outside the team check a capability claim, and we work with sponsors including ONR, ARO, AFRL, and AFOSR to carry results toward operational use. Our MODIFLY platform provides scalable end-to-end multi-agent simulation for unmanned aerial vehicles, and the ModiFly team was selected for the DIU National Security Innovation Network Emerge accelerator.</p>
-          <ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">technology transition</span></li><li><span class="badge badge-gray">flight testing</span></li><li><span class="badge badge-gray">hardware in the loop</span></li><li><span class="badge badge-gray">multi-agent simulation</span></li><li><span class="badge badge-gray">benchmarks and datasets</span></li><li><span class="badge badge-gray">verification and validation</span></li></ul>
+          <p class="small-head">Topics</p><ul class="badges" aria-label="Keywords"><li><span class="badge badge-gray">technology transition</span></li><li><span class="badge badge-gray">flight testing</span></li><li><span class="badge badge-gray">hardware in the loop</span></li><li><span class="badge badge-gray">multi-agent simulation</span></li><li><span class="badge badge-gray">benchmarks and datasets</span></li><li><span class="badge badge-gray">verification and validation</span></li></ul>
           <p class="small-head">Platforms and projects</p><ul class="topics"><li id="project-modifly">
   <details class="topic">
     <summary><span class="topic-title">MODIFLY multi-agent UAV simulation platform</span></summary>
@@ -1341,24 +1415,24 @@ tr.is-this-week td {
   </details>
 </li></ul>
         </div>
+        <div class="pillar-img"><div class="icon-frame"><span class="icon-tile" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-drone" aria-hidden="true"><path d="M10 10 7 7"></path><path d="m10 14-3 3"></path><path d="m14 10 3-3"></path><path d="m14 14 3 3"></path><path d="M14.205 4.139a4 4 0 1 1 5.439 5.863"></path><path d="M19.637 14a4 4 0 1 1-5.432 5.868"></path><path d="M4.367 10a4 4 0 1 1 5.438-5.862"></path><path d="M9.795 19.862a4 4 0 1 1-5.429-5.873"></path><rect x="10" y="8" width="4" height="8" rx="1"></rect></svg></span></div></div>
       </article>
-    </div>
-    <div class="grid grid-support mt-lg">
-      <section id="facilities" class="flow" aria-labelledby="facilities-h2">
-        <p class="kicker">Capability</p>
-        <h3 id="facilities-h2" class="h-sec">Facilities and flight testing</h3>
-        <div class="rich"><p>The lab builds its own small aircraft end to end: the frame, the flight control board with onboard computing, the software stack, and the sensing modules. One team controls the compute carrier and the software, which is what makes a claim about onboard timing and autonomy measurable rather than estimated.</p></div>
-      </section>
-      <section id="sponsors" class="card flow self-start" aria-labelledby="sponsors-h">
-        <h3 id="sponsors-h">Research sponsors</h3>
-        <p class="small muted">We gratefully acknowledge support from the following sponsors.</p>
-        <ul class="sponsor-names" aria-label="Research sponsors"><li>Office of Naval Research</li><li>Army Research Office</li><li>Air Force Research Laboratory</li><li>AFOSR</li><li>National Science Foundation</li><li>CPS Energy</li></ul>
-      </section>
     </div>
   </div>
 </section>
 
-<section id="publications" class="section tone-mist" aria-labelledby="publications-h">
+<section id="facilities" class="section tone-mist" aria-labelledby="facilities-h">
+  <div class="wrap">
+    <p class="kicker">Capability</p>
+<h2 id="facilities-h">Facilities and flight testing</h2>
+<p class="lead">The lab builds its own small aircraft end to end: the frame, the flight control board with onboard computing, the software stack, and the sensing modules. One team controls the compute carrier and the software, which is what makes a claim about onboard timing and autonomy measurable rather than estimated.</p>
+    <h3 id="sponsors" class="sub">Research sponsors</h3>
+    <p class="small muted">We gratefully acknowledge support from the following sponsors.</p>
+    <ul class="sponsor-panel" aria-label="Research sponsors"><li>Office of Naval Research</li><li>Army Research Office</li><li>Air Force Research Laboratory</li><li>AFOSR</li><li>National Science Foundation</li><li>CPS Energy</li></ul>
+  </div>
+</section>
+
+<section id="publications" class="section" aria-labelledby="publications-h">
   <div class="wrap">
     <p class="kicker">Publications</p>
 <h2 id="publications-h">Publications</h2>
@@ -1367,153 +1441,57 @@ tr.is-this-week td {
       <a class="btn btn-navy" href="https://scholar.google.com/citations?user=PH7yXPoAAAAJ&amp;hl=en" rel="noopener noreferrer">Google Scholar — Yongcan Cao</a>
       <a class="btn btn-outline" href="usl.bib" download>Download BibTeX (162)</a>
     </p>
-    <h3 class="sub">Recent papers (2025–2026)</h3>
-    <div class="card"><ul class="pub-list"><li>
-  <p class="pub-title">Adaptive Event-Triggered Policy Gradient for Multi-Agent Reinforcement Learning</p>
-  <p class="small">U. Siddique, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>American Control Conference</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="U. Siddique, A. Sinha, and Y. Cao. (2026). Adaptive Event-Triggered Policy Gradient for Multi-Agent Reinforcement Learning. American Control Conference." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Beyond the Weighted Sum: Rubric Aggregation for Multi-Criterion LLM Alignment</p>
-  <p class="small">U. Siddique, P. Li, and Y. Cao</p>
-  <p class="small muted"><em>COLM Workshop on Agent Behavior</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="U. Siddique, P. Li, and Y. Cao. (2026). Beyond the Weighted Sum: Rubric Aggregation for Multi-Criterion LLM Alignment. COLM Workshop on Agent Behavior." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Engagement-Zone-Aware Input-Constrained Guidance for Safe Target Interception</p>
+    <h3 class="sub">Recent journal articles (2025–2026)</h3>
+    <ul class="grid grid-2"><li class="card pub">
+  <p class="badges-row"><span class="badge badge-navy">Journal article</span></p>
+  <h4 class="h-card">Engagement-Zone-Aware Input-Constrained Guidance for Safe Target Interception</h4>
   <p class="small">P. Ranjan, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>Journal of Guidance, Control, and Dynamics</em> · Accepted.</p>
+  <p class="small muted"><em>Journal of Guidance, Control, and Dynamics</em> (2026)</p>
+  <p class="small muted">Accepted.</p>
   <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.2514/1.g010104" rel="noopener noreferrer">doi:10.2514/1.g010104</a><button type="button" class="chip" data-copy="P. Ranjan, A. Sinha, and Y. Cao. (2026). Engagement-Zone-Aware Input-Constrained Guidance for Safe Target Interception. Journal of Guidance, Control, and Dynamics. https://doi.org/10.2514/1.g010104" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Inference-Time Policy Alignment for Fair Reinforcement Learning</p>
-  <p class="small">U. Siddique, P. Li, and Y. Cao</p>
-  <p class="small muted"><em>Reinforcement Learning Conference</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="U. Siddique, P. Li, and Y. Cao. (2026). Inference-Time Policy Alignment for Fair Reinforcement Learning. Reinforcement Learning Conference." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Learning Fair Policies in Multi-Objective Preference-based Reinforcement Learning</p>
+</li><li class="card pub">
+  <p class="badges-row"><span class="badge badge-navy">Journal article</span></p>
+  <h4 class="h-card">Learning Fair Policies in Multi-Objective Preference-based Reinforcement Learning</h4>
   <p class="small">U. Siddique, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>Machine Learning</em> 115(23–56)</p>
+  <p class="small muted"><em>Machine Learning</em> 115(23–56) (2026)</p>
+  
   <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.1007/s10994-025-06959-y" rel="noopener noreferrer">doi:10.1007/s10994-025-06959-y</a><button type="button" class="chip" data-copy="U. Siddique, A. Sinha, and Y. Cao. (2026). Learning Fair Policies in Multi-Objective Preference-based Reinforcement Learning. Machine Learning, 115(23–56). https://doi.org/10.1007/s10994-025-06959-y" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Right Goal, Wrong Body: Re-grounding Frozen VLAs under Actuation Shift</p>
-  <p class="small">U. Siddique, P. Li, and Y. Cao</p>
-  <p class="small muted"><em>CoRL Workshop on Science of Physical AI Safety</em> · Spotlight talk · Top 10 score.</p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="U. Siddique, P. Li, and Y. Cao. (2026). Right Goal, Wrong Body: Re-grounding Frozen VLAs under Actuation Shift. CoRL Workshop on Science of Physical AI Safety." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Safety-Critical Input-Constrained Nonlinear Intercept Guidance in Multiple Engagement Zones</p>
+</li><li class="card pub">
+  <p class="badges-row"><span class="badge badge-navy">Journal article</span></p>
+  <h4 class="h-card">Three-dimensional Integrated Guidance and Control for Leader-Follower Flexible Formation of Fixed Wing UAVs</h4>
   <p class="small">P. Ranjan, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>American Control Conference</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="P. Ranjan, A. Sinha, and Y. Cao. (2026). Safety-Critical Input-Constrained Nonlinear Intercept Guidance in Multiple Engagement Zones. American Control Conference." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Three-dimensional Integrated Guidance and Control for Leader-Follower Flexible Formation of Fixed Wing UAVs</p>
-  <p class="small">P. Ranjan, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>Aerospace Science and Technology</em> · In press.</p>
+  <p class="small muted"><em>Aerospace Science and Technology</em> (2026)</p>
+  <p class="small muted">In press.</p>
   <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.1016/j.ast.2026.113356" rel="noopener noreferrer">doi:10.1016/j.ast.2026.113356</a><button type="button" class="chip" data-copy="P. Ranjan, A. Sinha, and Y. Cao. (2026). Three-dimensional Integrated Guidance and Control for Leader-Follower Flexible Formation of Fixed Wing UAVs. Aerospace Science and Technology. https://doi.org/10.1016/j.ast.2026.113356" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">3D Guidance Law for Flexible Target Enclosing with Inherent Safety</p>
+</li><li class="card pub">
+  <p class="badges-row"><span class="badge badge-navy">Journal article</span></p>
+  <h4 class="h-card">3D Guidance Law for Flexible Target Enclosing with Inherent Safety</h4>
   <p class="small">P. Ranjan, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>IEEE Robotics and Automation Letters</em> 10(2), 2088–2095</p>
+  <p class="small muted"><em>IEEE Robotics and Automation Letters</em> 10(2), 2088–2095 (2025)</p>
+  
   <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.1109/lra.2025.3528225" rel="noopener noreferrer">doi:10.1109/lra.2025.3528225</a><button type="button" class="chip" data-copy="P. Ranjan, A. Sinha, and Y. Cao. (2025). 3D Guidance Law for Flexible Target Enclosing with Inherent Safety. IEEE Robotics and Automation Letters, 10(2), 2088–2095. https://doi.org/10.1109/lra.2025.3528225" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">A Reinforcement Learning Approach to Target Capture in the Presence of a Defender</p>
-  <p class="small">S. Bandela, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>AIAA SciTech Forum</em></p>
-  <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.2514/6.2025-1902" rel="noopener noreferrer">doi:10.2514/6.2025-1902</a><button type="button" class="chip" data-copy="S. Bandela, A. Sinha, and Y. Cao. (2025). A Reinforcement Learning Approach to Target Capture in the Presence of a Defender. AIAA SciTech Forum. https://doi.org/10.2514/6.2025-1902" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Adaptive Event-triggered Reinforcement Learning Control for Complex Nonlinear Systems</p>
-  <p class="small">U. Siddique, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>American Control Conference</em></p>
-  <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.23919/acc63710.2025.11107925" rel="noopener noreferrer">doi:10.23919/acc63710.2025.11107925</a><button type="button" class="chip" data-copy="U. Siddique, A. Sinha, and Y. Cao. (2025). Adaptive Event-triggered Reinforcement Learning Control for Complex Nonlinear Systems. American Control Conference. https://doi.org/10.23919/acc63710.2025.11107925" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Fair Multi-Agent Reinforcement Learning for Traffic Control</p>
+</li><li class="card pub">
+  <p class="badges-row"><span class="badge badge-navy">Journal article</span></p>
+  <h4 class="h-card">Fair Multi-Agent Reinforcement Learning for Traffic Control</h4>
   <p class="small">U. Siddique, P. Li, and Y. Cao</p>
-  <p class="small muted"><em>ACM Journal on Autonomous Transportation Systems</em> 3(2), 1–24</p>
+  <p class="small muted"><em>ACM Journal on Autonomous Transportation Systems</em> 3(2), 1–24 (2025)</p>
+  
   <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.1145/3749378" rel="noopener noreferrer">doi:10.1145/3749378</a><button type="button" class="chip" data-copy="U. Siddique, P. Li, and Y. Cao. (2025). Fair Multi-Agent Reinforcement Learning for Traffic Control. ACM Journal on Autonomous Transportation Systems, 3(2), 1–24. https://doi.org/10.1145/3749378" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Fairness in Traffic Control: Decentralized Multi-agent Reinforcement Learning with Generalized Gini Welfare Functions</p>
-  <p class="small">U. Siddique, P. Li, and Y. Cao</p>
-  <p class="small muted"><em>AAAI Workshop on Multi-Agent Reinforcement Learning for Transportation Autonomy</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="U. Siddique, P. Li, and Y. Cao. (2025). Fairness in Traffic Control: Decentralized Multi-agent Reinforcement Learning with Generalized Gini Welfare Functions. AAAI Workshop on Multi-Agent Reinforcement Learning for Transportation Autonomy." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">From Explainability to Interpretability: Interpretable Policies in Reinforcement Learning via Model Explanation</p>
-  <p class="small">P. Li, U. Siddique, and Y. Cao</p>
-  <p class="small muted"><em>AAAI Workshop on Deployable Artificial Intelligence</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="P. Li, U. Siddique, and Y. Cao. (2025). From Explainability to Interpretability: Interpretable Policies in Reinforcement Learning via Model Explanation. AAAI Workshop on Deployable Artificial Intelligence." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">From Explainability to Interpretability: Interpretable Reinforcement Learning via Model Explanations</p>
-  <p class="small">P. Li, U. Siddique, and Y. Cao</p>
-  <p class="small muted"><em>Reinforcement Learning Conference</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="P. Li, U. Siddique, and Y. Cao. (2025). From Explainability to Interpretability: Interpretable Reinforcement Learning via Model Explanations. Reinforcement Learning Conference." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Human-Inspired Multi-Level Reinforcement Learning</p>
-  <p class="small">M. Wu, D. White, V. Lawhern, N. Waytowich, and Y. Cao</p>
-  <p class="small muted"><em>NeurIPS Workshop on Aligning Reinforcement Learning Experimentalists and Theorists</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="M. Wu, D. White, V. Lawhern, N. Waytowich, and Y. Cao. (2025). Human-Inspired Multi-Level Reinforcement Learning. NeurIPS Workshop on Aligning Reinforcement Learning Experimentalists and Theorists." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Learning Fair Pareto-Optimal Policies in Multi-Objective Reinforcement Learning</p>
-  <p class="small">U. Siddique, P. Li, and Y. Cao</p>
-  <p class="small muted"><em>Reinforcement Learning Conference</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="U. Siddique, P. Li, and Y. Cao. (2025). Learning Fair Pareto-Optimal Policies in Multi-Objective Reinforcement Learning. Reinforcement Learning Conference." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">MODIFLY: A Scalable End-to-end Multi-Agent Simulation for Unmanned Aerial Vehicles</p>
-  <p class="small">J. Cofield, U. Siddique, and Y. Cao</p>
-  <p class="small muted"><em>AAMAS Workshop on Multi-Agent-Based Simulation</em></p>
-  <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.1007/978-3-032-16328-8_9" rel="noopener noreferrer">doi:10.1007/978-3-032-16328-8_9</a><button type="button" class="chip" data-copy="J. Cofield, U. Siddique, and Y. Cao. (2025). MODIFLY: A Scalable End-to-end Multi-Agent Simulation for Unmanned Aerial Vehicles. AAMAS Workshop on Multi-Agent-Based Simulation. https://doi.org/10.1007/978-3-032-16328-8_9" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Multi-Task Reward Learning from Human Ratings</p>
-  <p class="small">M. Wu, D. White, E. Rose, V. Lawhern, N. Waytowich, and Y. Cao</p>
-  <p class="small muted"><em>ICML Workshop on Models of Human Feedback for AI Alignment</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="M. Wu, D. White, E. Rose, V. Lawhern, N. Waytowich, and Y. Cao. (2025). Multi-Task Reward Learning from Human Ratings. ICML Workshop on Models of Human Feedback for AI Alignment." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">On-Policy Reinforcement Learning from Failure via Sparse Reward Densification</p>
+</li><li class="card pub">
+  <p class="badges-row"><span class="badge badge-navy">Journal article</span></p>
+  <h4 class="h-card">Robust Human-Machine Teaming through Reinforcement Learning from Failure via Sparse Reward Densification</h4>
   <p class="small">M. Wu and Y. Cao</p>
-  <p class="small muted"><em>International Conference on Autonomous Agents and Multi-Agent Systems</em></p>
-  <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.65109/laxy1924" rel="noopener noreferrer">doi:10.65109/laxy1924</a><button type="button" class="chip" data-copy="M. Wu and Y. Cao. (2025). On-Policy Reinforcement Learning from Failure via Sparse Reward Densification. International Conference on Autonomous Agents and Multi-Agent Systems. https://doi.org/10.65109/laxy1924" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Performance Optimization of Ratings-Based Reinforcement Learning</p>
-  <p class="small">E. Rose, D. White, M. Wu, V. Lawhern, N. Waytowich, and Y. Cao</p>
-  <p class="small muted"><em>AAAI Collaborative AI and Modelling of Humans Bridge Program</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="E. Rose, D. White, M. Wu, V. Lawhern, N. Waytowich, and Y. Cao. (2025). Performance Optimization of Ratings-Based Reinforcement Learning. AAAI Collaborative AI and Modelling of Humans Bridge Program." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">RECOLLAB: Retrieval-Augmented LLMs for Cooperative Ad-hoc Teammate Modeling</p>
-  <p class="small">C. Wallace, U. Siddique, and Y. Cao</p>
-  <p class="small muted"><em>NeurIPS Workshop on Bridging Language, Agent, and World Models for Reasoning and Planning</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="C. Wallace, U. Siddique, and Y. Cao. (2025). RECOLLAB: Retrieval-Augmented LLMs for Cooperative Ad-hoc Teammate Modeling. NeurIPS Workshop on Bridging Language, Agent, and World Models for Reasoning and Planning." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">RbRL2.0: Integrated Reward and Policy Learning for Rating-based Reinforcement Learning</p>
-  <p class="small">M. Wu, D. White, V. Lawhern, N. Waytowich, and Y. Cao</p>
-  <p class="small muted"><em>AAAI Collaborative AI and Modelling of Humans Bridge Program</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="M. Wu, D. White, V. Lawhern, N. Waytowich, and Y. Cao. (2025). RbRL2.0: Integrated Reward and Policy Learning for Rating-based Reinforcement Learning. AAAI Collaborative AI and Modelling of Humans Bridge Program." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Robust Human-Machine Teaming through Reinforcement Learning from Failure via Sparse Reward Densification</p>
-  <p class="small">M. Wu and Y. Cao</p>
-  <p class="small muted"><em>IEEE Control Systems Letters</em> 9, 2315–2320</p>
+  <p class="small muted"><em>IEEE Control Systems Letters</em> 9, 2315–2320 (2025)</p>
+  
   <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.1109/lcsys.2025.3591199" rel="noopener noreferrer">doi:10.1109/lcsys.2025.3591199</a><button type="button" class="chip" data-copy="M. Wu and Y. Cao. (2025). Robust Human-Machine Teaming through Reinforcement Learning from Failure via Sparse Reward Densification. IEEE Control Systems Letters, 9, 2315–2320. https://doi.org/10.1109/lcsys.2025.3591199" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Self-organizing Multiagent Target Enclosing under Limited Information and Safety Guarantees</p>
+</li><li class="card pub">
+  <p class="badges-row"><span class="badge badge-navy">Journal article</span></p>
+  <h4 class="h-card">Self-organizing Multiagent Target Enclosing under Limited Information and Safety Guarantees</h4>
   <p class="small">P. Ranjan, A. Sinha, and Y. Cao</p>
-  <p class="small muted"><em>IEEE Transactions on Aerospace and Electronic Systems</em> 61(1), 1066–1078</p>
+  <p class="small muted"><em>IEEE Transactions on Aerospace and Electronic Systems</em> 61(1), 1066–1078 (2025)</p>
+  
   <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.1109/taes.2024.3452050" rel="noopener noreferrer">doi:10.1109/taes.2024.3452050</a><button type="button" class="chip" data-copy="P. Ranjan, A. Sinha, and Y. Cao. (2025). Self-organizing Multiagent Target Enclosing under Limited Information and Safety Guarantees. IEEE Transactions on Aerospace and Electronic Systems, 61(1), 1066–1078. https://doi.org/10.1109/taes.2024.3452050" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Symbolic Policy Distillation for Interpretable Reinforcement Learning</p>
-  <p class="small">P. Li, U. Siddique, and Y. Cao</p>
-  <p class="small muted"><em>NeurIPS Workshop on Mechanistic Interpretability</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="P. Li, U. Siddique, and Y. Cao. (2025). Symbolic Policy Distillation for Interpretable Reinforcement Learning. NeurIPS Workshop on Mechanistic Interpretability." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Three-Dimensional Relational Maneuvering Guidance Law for Flexible Leader-Follower Formation</p>
-  <p class="small">P. Ranjan, Y. Cao, and A. Sinha</p>
-  <p class="small muted"><em>AIAA SciTech Forum</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="P. Ranjan, Y. Cao, and A. Sinha. (2025). Three-Dimensional Relational Maneuvering Guidance Law for Flexible Leader-Follower Formation. AIAA SciTech Forum." hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">Towards Fair and Efficient Policy Learning in Cooperative Multi-Agent Reinforcement Learning</p>
-  <p class="small">U. Siddique, P. Li, and Y. Cao</p>
-  <p class="small muted"><em>International Conference on Autonomous Agents and Multi-Agent Systems</em></p>
-  <p class="pub-actions"><a class="chip chip-dark" href="https://doi.org/10.65109/bvio7870" rel="noopener noreferrer">doi:10.65109/bvio7870</a><button type="button" class="chip" data-copy="U. Siddique, P. Li, and Y. Cao. (2025). Towards Fair and Efficient Policy Learning in Cooperative Multi-Agent Reinforcement Learning. International Conference on Autonomous Agents and Multi-Agent Systems. https://doi.org/10.65109/bvio7870" hidden>Copy citation</button></p>
-</li><li>
-  <p class="pub-title">TransAM: Transformer-Based Agent Modeling for Multi-Agent Systems via Local Trajectory Encoding</p>
-  <p class="small">C. Wallace, U. Siddique, and Y. Cao</p>
-  <p class="small muted"><em>Reinforcement Learning Conference</em></p>
-  <p class="pub-actions"><button type="button" class="chip" data-copy="C. Wallace, U. Siddique, and Y. Cao. (2025). TransAM: Transformer-Based Agent Modeling for Multi-Agent Systems via Local Trajectory Encoding. Reinforcement Learning Conference." hidden>Copy citation</button></p>
-</li></ul></div>
+</li></ul>
     <h3 class="sub">All publications</h3>
     <div class="stack-sm">
       <details class="fold"><summary>Books and book chapters <span class="count">2</span></summary><div><div class="year-group"><h4 class="year">2017</h4><ul class="pub-list"><li id="pub-distributed-multi-agent-coordination-with-uncertain-interactions-a-probabilistic-perspecti">
@@ -2331,7 +2309,7 @@ tr.is-this-week td {
   </div>
 </section>
 
-<section id="people" class="section" aria-labelledby="people-h">
+<section id="people" class="section tone-mist" aria-labelledby="people-h">
   <div class="wrap">
     <p class="kicker">People</p>
 <h2 id="people-h">Lab members</h2>
@@ -2495,13 +2473,49 @@ tr.is-this-week td {
   </div>
 </section>
 
-<section id="news" class="section tone-mist" aria-labelledby="news-h">
+<section id="news" class="section" aria-labelledby="news-h">
   <div class="wrap">
     <p class="kicker">News</p>
 <h2 id="news-h">Lab news</h2>
 <p class="lead">Newest first: new members, graduations, honors, grants, and media coverage.</p>
-    <ul class="news-feed card">
-      <li id="news-2026-10-usls-work-was-featured-by-texas-standard"><time class="news-date" datetime="2026-10-01">October 2026</time><p>USL’s work was featured by <em>Texas Standard</em>. <a class="link" href="https://specials.texasstandard.org/texas-ai-accessibility-threats/" rel="noopener noreferrer">Read the story</a></p></li><li id="news-2026-09-welcome-paul-henson-to-usl"><time class="news-date" datetime="2026-09-01">September 2026</time><p>Welcome Paul Henson to USL.</p></li><li id="news-2026-09-yongcan-cao-was-elected-an-associate-fellow-of-aiaa"><time class="news-date" datetime="2026-09-01">September 2026</time><p>Yongcan Cao was elected an Associate Fellow of AIAA.</p></li><li id="news-2026-08-sergio-deleon-joins-raytheon-as-an-electrical-engineer"><time class="news-date" datetime="2026-08-01">August 2026</time><p>Sergio Deleon joins Raytheon as an electrical engineer.</p></li><li id="news-2026-05-welcome-jared-garza-to-usl"><time class="news-date" datetime="2026-05-01">May 2026</time><p>Welcome Jared Garza to USL.</p></li><li id="news-2026-04-usl-received-two-grants-totaling-620k-from-the-office-of-naval"><time class="news-date" datetime="2026-04-01">April 2026</time><p>USL received two grants totaling $620K from the Office of Naval Research.</p></li>
+    <ul class="grid grid-3">
+      <li id="news-2026-10-usls-work-was-featured-by-texas-standard" class="card news-card">
+        <div class="news-text">
+          <p class="small muted"><time datetime="2026-10-01">October 2026</time> · Media</p>
+          <h3 class="h-card">USL’s work was featured by Texas Standard</h3>
+          <p class="small"><a class="link" href="https://specials.texasstandard.org/texas-ai-accessibility-threats/" rel="noopener noreferrer">Read the story</a></p>
+        </div>
+      </li><li id="news-2026-09-welcome-paul-henson-to-usl" class="card news-card">
+        <div class="news-text">
+          <p class="small muted"><time datetime="2026-09-01">September 2026</time> · People</p>
+          <h3 class="h-card">Welcome Paul Henson to USL</h3>
+          
+        </div>
+      </li><li id="news-2026-09-yongcan-cao-was-elected-an-associate-fellow-of-aiaa" class="card news-card">
+        <div class="news-text">
+          <p class="small muted"><time datetime="2026-09-01">September 2026</time> · Honors and service</p>
+          <h3 class="h-card">Yongcan Cao was elected an Associate Fellow of AIAA</h3>
+          
+        </div>
+      </li><li id="news-2026-08-sergio-deleon-joins-raytheon-as-an-electrical-engineer" class="card news-card">
+        <div class="news-text">
+          <p class="small muted"><time datetime="2026-08-01">August 2026</time> · Alumni and graduations</p>
+          <h3 class="h-card">Sergio Deleon joins Raytheon as an electrical engineer</h3>
+          
+        </div>
+      </li><li id="news-2026-05-welcome-jared-garza-to-usl" class="card news-card">
+        <div class="news-text">
+          <p class="small muted"><time datetime="2026-05-01">May 2026</time> · People</p>
+          <h3 class="h-card">Welcome Jared Garza to USL</h3>
+          
+        </div>
+      </li><li id="news-2026-04-usl-received-two-grants-totaling-620k-from-the-office-of-naval" class="card news-card">
+        <div class="news-text">
+          <p class="small muted"><time datetime="2026-04-01">April 2026</time> · Funding</p>
+          <h3 class="h-card">USL received two grants totaling $620K from the Office of Naval Research</h3>
+          
+        </div>
+      </li>
     </ul>
     <h3 class="sub">Earlier news</h3>
     <div class="stack-sm">
@@ -2510,16 +2524,16 @@ tr.is-this-week td {
   </div>
 </section>
 
-<section id="join" class="section" aria-labelledby="join-h">
+<section id="join" class="section tone-mist" aria-labelledby="join-h">
   <div class="wrap">
     <p class="kicker">Openings</p>
 <h2 id="join-h">Join the lab</h2>
 <p class="lead">We take PhD, master’s, and undergraduate students who want to build things that fly and prove they work.</p>
     <div class="grid grid-join">
-      <div class="flow">
-        <h3 class="h-sec">What you would work on</h3>
+      <div class="card">
+        <h3>What you would work on</h3>
         <p>Students here do not pick between theory and hardware. A typical project runs from a control or learning formulation through to a flight test on an aircraft the lab built. Recent student work has appeared in <em>Automatica</em>, <em>IEEE Transactions on Automatic Control</em>, the <em>Journal of Guidance, Control, and Dynamics</em>, AAAI, AAMAS, RA-L, NeurIPS/ICML workshops, and the Reinforcement Learning Conference.</p>
-        <h3 class="h-sec">Where our students go</h3>
+        <h3>Where our students go</h3>
         <p>Graduates have gone to SpaceX, Raytheon, Path Robotics, Nvidia, Amazon, Dell, Bosch, NXP, General Motors, Corvid Technologies, Southwest Research Institute, and the Army Research Laboratory. Others continued to graduate school at Cornell, UC Berkeley, Rice, Texas A&amp;M, and UT Austin, including one DoD SMART Scholarship. A former postdoc is now a faculty member at the University of Cincinnati.</p>
       </div>
       <div class="card self-start">
@@ -2532,7 +2546,7 @@ tr.is-this-week td {
   </div>
 </section>
 
-<section id="contact" class="section tone-mist" aria-labelledby="contact-h">
+<section id="contact" class="section" aria-labelledby="contact-h">
   <div class="wrap">
     <p class="kicker">Contact</p>
 <h2 id="contact-h">Contact the lab</h2>
