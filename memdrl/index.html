@@ -6,7 +6,7 @@
 <title>MeMDRL — Multifunctional Electronic Materials and Devices Research Laboratory</title>
 <meta name="description" content="MeMDRL designs ferroic and multifunctional materials, prints and integrates them with semiconductors, and uses modeling, machine learning, and quantum-informed experiments to turn those materials into sensors, actuators, and low-power electronics.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#05080f">
+<meta name="theme-color" content="#0c2340">
 <meta property="og:title" content="MeMDRL — Multifunctional Electronic Materials and Devices Research Laboratory">
 <meta property="og:description" content="MeMDRL designs ferroic and multifunctional materials, prints and integrates them with semiconductors, and uses modeling, machine learning, and quantum-informed experiments to turn those materials into sensors, actuators, and low-power electronics.">
 <meta property="og:type" content="website">
@@ -47,11 +47,9 @@
   --mist: #f5f7fa;
   --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --serif: "Source Serif 4", "Iowan Old Style", Palatino, Georgia, serif;
-  --void: #05080f;
-  --maroon: #8a2f2c;
-  --olive: #56692a;
-  --shadow: none;
-  --header-h: 4.5rem;
+  --radius: 0.875rem;
+  --shadow: 0 1px 2px rgb(12 35 64 / 0.06), 0 8px 24px rgb(12 35 64 / 0.06);
+  --header-h: 4rem;
   color-scheme: light;
 }
 
@@ -97,11 +95,10 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--sans);
-  font-weight: 500;
+  font-family: var(--serif);
   color: var(--navy-900);
-  line-height: 1.15;
-  letter-spacing: -0.022em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 address {
@@ -138,6 +135,7 @@ main:focus {
   top: -5rem;
   z-index: 100;
   padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   background: var(--navy-900);
   color: #fff;
   font-weight: 600;
@@ -157,7 +155,7 @@ main:focus {
 }
 
 .wrap {
-  max-width: 80rem;
+  max-width: 72rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -237,35 +235,34 @@ main:focus {
   position: sticky;
   top: 0;
   z-index: 50;
-  border-bottom: 1px solid rgb(255 255 255 / 0.1);
-  background: var(--void);
+  border-bottom: 1px solid var(--line);
+  background: rgb(255 255 255 / 0.96);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 .header-bar {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  min-height: 4.5rem;
+  min-height: 4rem;
 }
 .brand {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
-  gap: 0.75rem;
+  align-items: baseline;
+  gap: 0.5rem;
   text-decoration: none;
 }
 .brand-mark {
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: #fff;
+  font-family: var(--serif);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--navy-900);
 }
 .brand-sub {
-  display: block;
   font-size: 0.75rem;
-  line-height: 1.2;
-  color: var(--navy-100);
+  font-weight: 500;
+  color: var(--muted);
 }
 .site-header nav {
   position: relative;
@@ -283,21 +280,25 @@ main:focus {
 .site-header nav a {
   display: block;
   padding: 0.5rem 0.625rem;
-  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   white-space: nowrap;
   text-decoration: none;
-  color: #fff;
+  color: var(--ink);
 }
 .site-header nav a:hover {
-  color: var(--orange-300);
+  background: var(--navy-50);
+  color: var(--navy-900);
 }
 .site-header nav a[aria-current] {
+  border-radius: 0;
   box-shadow: inset 0 -2px 0 var(--orange-500);
-  color: #fff;
+  color: var(--navy-900);
 }
 @media (max-width: 1099.98px) {
   :root {
-    --header-h: 7.25rem;
+    --header-h: 6.25rem;
   }
   .header-bar {
     flex-wrap: wrap;
@@ -329,6 +330,7 @@ main:focus {
   min-height: 2.75rem;
   padding: 0.5rem 1.25rem;
   border: 1px solid transparent;
+  border-radius: 999px;
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.3;
@@ -340,7 +342,7 @@ main:focus {
 }
 .btn-accent {
   background: var(--orange-500);
-  color: var(--void);
+  color: var(--navy-900);
 }
 .btn-accent:hover {
   background: var(--orange-300);
@@ -353,7 +355,7 @@ main:focus {
   background: rgb(255 255 255 / 0.1);
 }
 .btn-navy {
-  background: var(--void);
+  background: var(--navy-900);
   color: #fff;
 }
 .btn-navy:hover {
@@ -373,6 +375,7 @@ main:focus {
   min-height: 2rem;
   padding: 0.25rem 0.75rem;
   border: 1px solid var(--line);
+  border-radius: 999px;
   background: #fff;
   color: var(--navy-900);
   font: inherit;
@@ -404,6 +407,7 @@ main:focus {
 .badge {
   display: inline-block;
   padding: 0.125rem 0.5rem;
+  border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.5;
@@ -427,25 +431,28 @@ main:focus {
 
 /* Layout blocks */
 .section {
-  padding: 0 0 4rem;
+  padding: 4rem 0;
 }
 @media (min-width: 640px) {
   .section {
-    padding-bottom: 5rem;
+    padding: 5rem 0;
   }
 }
 .tone-mist {
   background: var(--mist);
 }
+.section h2 {
+  font-size: clamp(1.75rem, 1.5vw + 1.25rem, 2.25rem);
+}
 .lead {
   max-width: 48rem;
-  margin-top: 1.5rem;
-  font-size: 1.125rem;
-  line-height: 1.65;
-  color: var(--navy-100);
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.0625rem;
+  color: var(--muted);
 }
-.section-head + .actions {
-  margin-top: 0;
+.lead + .actions {
+  margin-top: -1rem;
 }
 .sub {
   margin: 3rem 0 1.25rem;
@@ -466,6 +473,7 @@ main:focus {
 .card {
   padding: 1.25rem;
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: #fff;
   box-shadow: var(--shadow);
 }
@@ -547,10 +555,12 @@ figcaption {
   height: auto;
 }
 .rounded {
+  border-radius: var(--radius);
 }
 .framed {
   padding: 0.5rem;
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: #fff;
 }
 .contain {
@@ -588,49 +598,90 @@ figcaption {
 .hero {
   position: relative;
   overflow: hidden;
-  background: var(--void);
+  background: var(--navy-900);
   color: #fff;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  pointer-events: none;
+  background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  right: -10rem;
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: rgb(241 90 34 / 0.15);
+  filter: blur(64px);
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.25fr 1fr;
+    align-items: center;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
 .hero h1 {
-  flex: 1;
-  min-width: 0;
-  font-size: min(8.6vw, 5.25rem);
-  font-weight: 600;
-  line-height: 1.06;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  text-wrap: wrap;
+  margin-top: 1rem;
+  font-size: clamp(2.1rem, 3vw + 1.25rem, 3.25rem);
+  line-height: 1.1;
   color: #fff;
 }
 .hero-lead {
   max-width: 42rem;
-  margin-top: 1rem;
-  font-size: 1.05rem;
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: var(--navy-100);
+}
+.hero-frame {
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.05);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.15);
 }
 .stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  max-width: 36rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
 }
 .stats div {
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
+  padding: 0.75rem 0.25rem;
+  border-radius: 0.75rem;
+  background: rgb(255 255 255 / 0.05);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
 }
 .stats dt {
-  margin-top: 0.25rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 1.25;
   color: var(--navy-100);
 }
 .stats dd {
-  font-size: clamp(1.75rem, 3vw, 2.75rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.025em;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #fff;
 }
 
@@ -672,13 +723,28 @@ figcaption {
   top: 0.8rem;
   width: 0.375rem;
   height: 0.375rem;
+  border-radius: 50%;
   background: var(--orange-500);
 }
 .hero-logo {
-  flex-shrink: 0;
-  width: 10rem;
+  width: min(15rem, 55%);
+  margin-bottom: 1rem;
   padding: 0.75rem;
+  border-radius: 1rem;
   background: #fff;
+}
+.hero-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.kicker-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.kicker-link:hover {
+  color: #fff;
 }
 .dd {
   margin-top: 0.75rem;
@@ -726,6 +792,7 @@ figcaption {
 /* Folding panels */
 .fold {
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: #fff;
 }
 .fold > summary {
@@ -805,6 +872,7 @@ figcaption {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-radius: 50%;
   background: var(--navy-50);
   box-shadow: 0 0 0 1px var(--line);
 }
@@ -831,6 +899,7 @@ figcaption {
 .avatar-initials {
   background: var(--navy-900);
   color: #fff;
+  font-family: var(--serif);
   font-weight: 600;
 }
 .alumni {
@@ -884,6 +953,7 @@ figcaption {
   margin-top: 1rem;
   overflow-x: auto;
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: #fff;
 }
 table {
@@ -996,6 +1066,7 @@ tr.is-this-week td {
   margin-top: 1.5rem;
   padding: 1.5rem;
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: #fff;
 }
 .sponsor-logo {
@@ -1019,6 +1090,7 @@ tr.is-this-week td {
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   break-inside: avoid;
 }
 .award h4 {
@@ -1036,504 +1108,24 @@ tr.is-this-week td {
 
 /* Footer */
 .site-footer {
-  padding: 4rem 0;
-  border-top: 1px solid rgb(255 255 255 / 0.1);
-  background: var(--void);
+  padding: 3.5rem 0;
+  background: var(--navy-900);
   color: var(--navy-100);
+}
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 .footer-brand {
-  font-size: clamp(3rem, 15vw, 11rem);
-  font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: #fff;
-}
-
-/* Dark-canvas layout, matching the full site's home page */
-.accent-bar {
-  display: block;
-  width: 2.75rem;
-  height: 0.25rem;
-  background: var(--orange-500);
-}
-.brand-logo {
-  display: flex;
-  flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
-  padding: 0.125rem;
-  background: #fff;
-}
-.brand-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.brand-text {
-  display: block;
-}
-
-/* Section headers: a full-width dark band from inside the centred wrapper. */
-.section-head {
-  margin-bottom: 3rem;
-  padding: 4rem 0 3.5rem;
-  background: var(--void);
-  box-shadow: 0 0 0 100vmax var(--void);
-  clip-path: inset(0 -100vmax);
-  color: #fff;
-}
-.section-head h2 {
-  max-width: 64rem;
-  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: #fff;
-}
-/* Long single words ("acknowledgements") must fit a 320 px screen. */
-@media (max-width: 25rem) {
-  .section-head h2 {
-    font-size: 1.75rem;
-  }
-}
-.section-head .kicker {
-  margin-top: 1.25rem;
-  color: var(--orange-300);
-}
-.section-head .link {
-  color: #fff;
-}
-.section-head .link:hover {
-  color: var(--orange-300);
-}
-#join .section-head {
-  background: var(--orange-500);
-  box-shadow: 0 0 0 100vmax var(--orange-500);
-  color: var(--void);
-}
-#join .section-head h2,
-#join .section-head .kicker,
-#join .section-head .lead {
-  color: var(--void);
-}
-#join .section-head .accent-bar {
-  background: var(--void);
-}
-
-.hero-art {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: none;
-  height: 100%;
-  object-fit: contain;
-  object-position: right center;
-  opacity: 0.35;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 72%);
-  mask-image: linear-gradient(to bottom, #000 45%, transparent 72%);
-}
-.hero-inner {
-  position: relative;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-}
-.hero-top {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 2rem;
-}
-.hero h1 span {
-  display: block;
-}
-.hero-logo img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.hero-bottom {
-  display: grid;
-  gap: 3rem;
-  margin-top: 3.5rem;
-}
-.hero-sub {
-  margin-top: 1.25rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.hero-sub a {
-  color: #fff;
-  text-decoration-color: rgb(255 255 255 / 0.55);
-  text-underline-offset: 3px;
-}
-.hero-sub a:hover {
-  color: var(--orange-300);
-}
-.hero .link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.5rem;
-  color: #fff;
-  text-decoration-color: rgb(255 255 255 / 0.55);
-}
-.hero .link:hover {
-  color: var(--orange-300);
-}
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 2rem;
-  margin-top: 1.5rem;
-}
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  min-height: 1.5rem;
-  font-weight: 600;
-  color: inherit;
-  text-decoration: none;
-  text-underline-offset: 4px;
-}
-.cta:hover {
-  text-decoration: underline;
-}
-.arrow-tile {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: var(--orange-500);
-  color: var(--void);
-  font-size: 0.9rem;
-  line-height: 1;
-}
-@media (min-width: 640px) {
-  .hero-inner {
-    padding-top: 5rem;
-  }
-  .hero-logo {
-    width: 12rem;
-  }
-}
-@media (min-width: 1024px) {
-  .hero-art {
-    width: 75%;
-  }
-  .hero-top {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  .hero h1 {
-    font-size: min(5vw, 4.5rem);
-  }
-  .ind-1 {
-    padding-left: 3%;
-  }
-  .ind-2 {
-    padding-left: 6%;
-  }
-  .hero-logo {
-    width: 13rem;
-  }
-  .hero-bottom {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5rem;
-    align-items: end;
-  }
-}
-@media (min-width: 1280px) {
-  .hero-logo {
-    width: 16rem;
-  }
-}
-
-/* Tile wall */
-.wall {
-  padding: 0.5rem 0 5rem;
-  background: var(--void);
-}
-.wall ul {
-  display: grid;
-  gap: 2rem;
-}
-.tile {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 23rem;
-  text-decoration: none;
-}
-.tile-text {
-  padding: 1.5rem;
-}
-.tile-eyebrow {
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.tile h3 {
-  margin-top: 1.25rem;
-  font-size: 1.4rem;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-  color: inherit;
-}
-.tile:hover h3 {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.tile-note {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-.tile-pic {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 12rem;
-  margin-top: auto;
-  padding: 0 1.25rem 1.25rem;
-}
-.tile-pic img {
-  width: auto;
-  max-height: 100%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-}
-.tile-photo {
-  height: 11rem;
-  margin-top: auto;
-  overflow: hidden;
-}
-.tile-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.tile-white {
-  background: #fff;
-  color: var(--void);
-}
-.tile-mist {
-  background: #e9ecf1;
-  color: var(--void);
-}
-.tile-navy {
-  background: var(--navy-800);
-  color: #fff;
-}
-.tile-orange {
-  background: var(--orange-500);
-  color: var(--void);
-}
-@media (min-width: 640px) {
-  .wall ul {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1024px) {
-  .wall ul {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2.5rem;
-  }
-  .tile {
-    min-height: 26.5rem;
-  }
-}
-
-/* Colour blocks scroll over a giant heading */
-.over {
-  position: relative;
-  background: var(--void);
-  color: #fff;
-}
-.over h2 {
-  font-size: clamp(3rem, 8.4vw, 7rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  text-align: center;
-  color: #fff;
-}
-.over-list {
-  position: relative;
-  z-index: 1;
-  margin-top: 3.5rem;
-}
-.over-list ul {
-  display: grid;
-  gap: 2rem;
-}
-.over-block {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 19rem;
-  padding: 2rem;
-  overflow: hidden;
-  text-decoration: none;
-}
-.over-block svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.35;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 62%);
-  mask-image: linear-gradient(to bottom, #000 30%, transparent 62%);
-}
-.over-pillar,
-.over-block h3,
-.over-name {
-  position: relative;
-}
-.over-pillar {
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.over-block h3 {
-  margin-top: 0.75rem;
   font-family: var(--serif);
-  font-size: 1.65rem;
-  font-weight: 300;
-  line-height: 1.22;
-  letter-spacing: 0;
-  color: inherit;
-}
-.over-block:hover h3 {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.over-name {
-  margin-top: 0.75rem;
-  font-size: 0.875rem;
-}
-.tone-0 {
-  background: var(--orange-500);
-  color: var(--void);
-}
-.tone-1 {
-  background: var(--navy-700);
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #fff;
-}
-.tone-2 {
-  background: var(--maroon);
-  color: #fff;
-}
-.tone-3 {
-  background: var(--olive);
-  color: #fff;
-}
-.over-more {
-  padding: 3.5rem 0 5rem;
-  background: var(--void);
-  color: #fff;
-  text-align: center;
-}
-@media (min-width: 1024px) {
-  .over-head {
-    position: sticky;
-    top: calc(50vh - 9rem);
-  }
-  .over-list {
-    margin-top: 32vh;
-  }
-  .over-list ul {
-    display: block;
-  }
-  .over-list li {
-    width: 44%;
-  }
-  .over-list li + li {
-    margin-top: 7rem;
-  }
-  .pos-0 {
-    margin-right: auto;
-  }
-  .pos-1 {
-    margin-left: auto;
-  }
-  .pos-2 {
-    margin-left: 24%;
-  }
-  .over-block {
-    min-height: 21.5rem;
-  }
-}
-
-/* The laboratory */
-.lab-band {
-  padding: 0 0 5rem;
-  background: var(--void);
-  color: #fff;
-}
-.lab-grid {
-  display: grid;
-  gap: 3rem;
-}
-.lab-grid h2 {
-  margin-top: 0.75rem;
-  font-size: clamp(1.875rem, 3vw, 2.5rem);
-  letter-spacing: -0.025em;
-  color: #fff;
-}
-.lab-grid .kicker {
-  margin: 1.25rem 0 0;
-  color: var(--orange-300);
-}
-.lab-grid .note {
-  margin-top: 1.25rem;
-  line-height: 1.7;
-  color: var(--navy-100);
-}
-.lab-grid .cta {
-  margin-top: 1.5rem;
-}
-@media (min-width: 1024px) {
-  .lab-grid {
-    grid-template-columns: 1.25fr 1fr;
-    align-items: center;
-    gap: 5rem;
-  }
-}
-
-/* Footer lockup */
-.footer-lockup {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.footer-lockup .small {
-  max-width: 24rem;
-  line-height: 1.6;
-}
-.footer-notes {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgb(255 255 255 / 0.15);
-}
-.site-footer .link-dark {
-  color: #fff;
-}
-@media (min-width: 1024px) {
-  .footer-lockup {
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
 }
 
 </style>
@@ -1542,78 +1134,37 @@ tr.is-this-week td {
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-bar">
-    <a class="brand" href="#top"><span class="brand-logo"><img src="assets/img/logo-96.webp" alt="" width="96" height="92" fetchpriority="high" decoding="async"></span><span class="brand-text"><span class="brand-mark">MeMDRL</span><span class="brand-sub">UT San Antonio</span></span></a>
+    <a class="brand" href="#top"><span class="brand-mark">MeMDRL</span><span class="brand-sub">UT San Antonio</span></a>
     <nav aria-label="Page sections"><ul><li><a href="#top">Home</a></li><li><a href="#research">Research</a></li><li><a href="#facilities">Facilities</a></li><li><a href="#people">People</a></li><li><a href="#publications">Publications</a></li><li><a href="#events">Events</a></li><li><a href="#news">News</a></li><li><a href="#join">Join</a></li><li><a href="#support">Support</a></li><li><a href="#contact">Contact</a></li></ul></nav>
   </div>
 </header>
 <main id="main" tabindex="-1">
 
 <section id="top" class="hero" aria-labelledby="top-h">
-  <img src="assets/img/hero-hysteresis-1600.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" class="hero-art">
-  <div class="wrap hero-inner">
-    <div class="hero-top">
-      <h1 id="top-h"><span>Multifunctional</span> <span class="ind-1">Electronic Materials</span> <span>and Devices</span> <span class="ind-2">Research Laboratory</span></h1>
-      <div class="hero-logo"><img src="assets/img/logo-540.webp" alt="MeMDRL logo" width="540" height="519" fetchpriority="high" decoding="async"></div>
-    </div>
-    <div class="hero-bottom">
-      <dl class="stats"><div><dt>Established</dt><dd>2007</dd></div><div><dt>Current members</dt><dd>28</dd></div><div><dt>Ph.D. graduates</dt><dd>15</dd></div><div><dt>M.S. graduates</dt><dd>89</dd></div></dl>
-      <div>
-        <span class="accent-bar" aria-hidden="true"></span>
-        <p class="hero-sub"><a class="" href="https://klesse.utsa.edu/" rel="noopener noreferrer">Klesse College</a> · <a class="" href="https://klesse.utsa.edu/electrical/" rel="noopener noreferrer">Electrical Engineering</a> · UT San Antonio</p>
-        <p class="hero-lead">MeMDRL designs ferroic and multifunctional materials, prints and integrates them with semiconductors, and uses modeling, machine learning, and quantum-informed experiments to turn those materials into sensors, actuators, and low-power electronics.</p>
-        <p class="cta-row">
-          <a class="cta" href="#research">Explore research <span class="arrow-tile" aria-hidden="true">→</span></a>
-          <a class="link" href="#join">Join the group</a>
-          <a class="link" href="#seminar">This week’s seminar</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="wall" aria-labelledby="wall-h">
-  <h2 id="wall-h" class="sr-only">Research pillars and highlights</h2>
-  <div class="wrap">
-    <ul>
-      <li><a class="tile tile-white" href="#pillar-ferroics"><div class="tile-text"><p class="tile-eyebrow">Research pillar</p><h3>Functional ferroics &amp; nanocomposites</h3></div><div class="tile-pic"><img src="assets/img/ferroics-coreshell-419.webp" alt="" width="419" height="231" loading="lazy" decoding="async"></div></a></li><li><a class="tile tile-mist" href="#pillar-sensors"><div class="tile-text"><p class="tile-eyebrow">Research pillar</p><h3>Sensors, actuators &amp; energy</h3></div><div class="tile-pic"><img src="assets/img/energy-transduction-439.webp" alt="" width="439" height="354" loading="lazy" decoding="async"></div></a></li><li><a class="tile tile-mist" href="#pillar-printed"><div class="tile-text"><p class="tile-eyebrow">Research pillar</p><h3>Printed microelectronics &amp; hybrid integration</h3></div><div class="tile-pic"><img src="assets/img/hybrid-chip-250.webp" alt="" width="250" height="408" loading="lazy" decoding="async"></div></a></li><li><a class="tile tile-white" href="#pillar-computation"><div class="tile-text"><p class="tile-eyebrow">Research pillar</p><h3>Modeling, ML &amp; quantum discovery</h3></div><div class="tile-pic"><img src="assets/img/computation-2d-qubits-300.webp" alt="" width="300" height="405" loading="lazy" decoding="async"></div></a></li>
-      <li><a class="tile tile-white" href="#this-week"><div class="tile-text"><p class="tile-eyebrow">Weekly seminar</p><h3>This week’s talk and the full schedule</h3></div></a></li>
-      <li><a class="tile tile-mist" href="#news-memdrl-at-the-texas-quantum-summit"><div class="tile-text"><p class="tile-eyebrow">Group news</p><h3>MeMDRL at the Texas Quantum Summit</h3></div><div class="tile-photo"><img src="assets/img/texas-quantum-summit-2026-720.webp" alt="" width="720" height="530" loading="lazy" decoding="async"></div></a></li>
-      <li><a class="tile tile-navy" href="#pub-sn-driven-fe-afe-crossover-ba-modified-plzt-2026"><div class="tile-text"><p class="tile-eyebrow">Recent paper · 2026</p><h3>Sn-driven ferroelectric–antiferroelectric crossover in Ba-modified PLZT ceramics: structural evolution and functional response</h3></div></a></li>
-      <li><a class="tile tile-orange" href="#join"><div class="tile-text"><p class="tile-eyebrow">Opportunities</p><h3>Work with MeMDRL</h3><p class="tile-note">Students, postdocs, visitors and collaborators: openings and how to apply.</p></div></a></li>
-    </ul>
-  </div>
-</section>
-
-<section class="over" aria-labelledby="active-research">
-  <div class="over-head"><div class="wrap"><h2 id="active-research">Active research topics</h2></div></div>
-  <div class="wrap over-list">
-    <ul>
-      <li class="pos-0"><a class="over-block tone-0" href="#person-william-paul-flynn"><svg aria-hidden="true" viewBox="0 0 520 340" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1" class="pointer-events-none absolute inset-0 size-full opacity-35 [mask-image:linear-gradient(to_bottom,black_30%,transparent_62%)]"><path d="M20 170H500M260 20V320"></path><path d="M50 280C200 280 240 60 470 60C320 60 280 280 50 280Z"></path><circle cx="470" cy="60" r="16"></circle><circle cx="50" cy="280" r="16"></circle></svg><p class="over-pillar">Functional ferroics &amp; nanocomposites</p><h3>Magnetoelectric Coupling in CFO-BTO Composite System</h3><p class="over-name">William Paul Flynn</p></a></li><li class="pos-1"><a class="over-block tone-1" href="#person-leeroy-clarke"><svg aria-hidden="true" viewBox="0 0 520 340" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1" class="pointer-events-none absolute inset-0 size-full opacity-35 [mask-image:linear-gradient(to_bottom,black_30%,transparent_62%)]"><g><rect x="60" y="30" width="160" height="160"></rect><path d="M140 30L220 110L140 190L60 110Z"></path><circle cx="140" cy="110" r="18"></circle></g><g><rect x="60" y="190" width="160" height="160"></rect><path d="M140 190L220 270L140 350L60 270Z"></path><circle cx="140" cy="270" r="18"></circle></g><g><rect x="220" y="30" width="160" height="160"></rect><path d="M300 30L380 110L300 190L220 110Z"></path><circle cx="300" cy="110" r="18"></circle></g><g><rect x="220" y="190" width="160" height="160"></rect><path d="M300 190L380 270L300 350L220 270Z"></path><circle cx="300" cy="270" r="18"></circle></g><g><rect x="380" y="30" width="160" height="160"></rect><path d="M460 30L540 110L460 190L380 110Z"></path><circle cx="460" cy="110" r="18"></circle></g><g><rect x="380" y="190" width="160" height="160"></rect><path d="M460 190L540 270L460 350L380 270Z"></path><circle cx="460" cy="270" r="18"></circle></g></svg><p class="over-pillar">Sensors, actuators &amp; energy</p><h3>Challenges and opportunities in corrosion sensing</h3><p class="over-name">Leeroy Clarke</p></a></li><li class="pos-2"><a class="over-block tone-2" href="#person-sean-garnsey"><svg aria-hidden="true" viewBox="0 0 520 340" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1" class="pointer-events-none absolute inset-0 size-full opacity-35 [mask-image:linear-gradient(to_bottom,black_30%,transparent_62%)]"><path d="M30 40H490M30 300H490"></path><path d="M60 40V250M105 300V90"></path><path d="M150 40V250M195 300V90"></path><path d="M240 40V250M285 300V90"></path><path d="M330 40V250M375 300V90"></path><path d="M420 40V250M465 300V90"></path></svg><p class="over-pillar">Printed microelectronics &amp; hybrid integration</p><h3>Volume confinement as a design principle and screening workflow for reactive inkjet printing of zinc oxide films</h3><p class="over-name">Sean Garnsey</p></a></li><li class="pos-0"><a class="over-block tone-3" href="#person-ayush-neupane"><svg aria-hidden="true" viewBox="0 0 520 340" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1" class="pointer-events-none absolute inset-0 size-full opacity-35 [mask-image:linear-gradient(to_bottom,black_30%,transparent_62%)]"><path d="M0 290H520"></path><g><circle cx="110" cy="150" r="90"></circle><circle cx="110" cy="150" r="55.8"></circle><circle cx="110" cy="150" r="25.200000000000003"></circle><path d="M110 240V290"></path></g><g><circle cx="290" cy="120" r="60"></circle><circle cx="290" cy="120" r="37.2"></circle><circle cx="290" cy="120" r="16.8"></circle><path d="M290 180V290"></path></g><g><circle cx="420" cy="190" r="45"></circle><circle cx="420" cy="190" r="27.9"></circle><circle cx="420" cy="190" r="12.600000000000001"></circle><path d="M420 235V290"></path></g></svg><p class="over-pillar">Modeling, ML &amp; quantum discovery</p><h3>Computational analysis of dielectric tunability and quantum-paraelectric behavior in SrTiO<sub>3</sub></h3><p class="over-name">Ayush Neupane</p></a></li><li class="pos-1"><a class="over-block tone-0" href="#person-le-quynh-nhu-huynh"><svg aria-hidden="true" viewBox="0 0 520 340" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1" class="pointer-events-none absolute inset-0 size-full opacity-35 [mask-image:linear-gradient(to_bottom,black_30%,transparent_62%)]"><path d="M20 170H500M260 20V320"></path><path d="M50 280C200 280 240 60 470 60C320 60 280 280 50 280Z"></path><circle cx="470" cy="60" r="16"></circle><circle cx="50" cy="280" r="16"></circle></svg><p class="over-pillar">Functional ferroics &amp; nanocomposites</p><h3>New materials for the cathode of intermediate-temperature solid oxide fuel cells (IT-SOFC)</h3><p class="over-name">Le Quynh (Nhu) Huynh</p></a></li><li class="pos-2"><a class="over-block tone-1" href="#person-austine-uwumwonse"><svg aria-hidden="true" viewBox="0 0 520 340" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1" class="pointer-events-none absolute inset-0 size-full opacity-35 [mask-image:linear-gradient(to_bottom,black_30%,transparent_62%)]"><g><rect x="60" y="30" width="160" height="160"></rect><path d="M140 30L220 110L140 190L60 110Z"></path><circle cx="140" cy="110" r="18"></circle></g><g><rect x="60" y="190" width="160" height="160"></rect><path d="M140 190L220 270L140 350L60 270Z"></path><circle cx="140" cy="270" r="18"></circle></g><g><rect x="220" y="30" width="160" height="160"></rect><path d="M300 30L380 110L300 190L220 110Z"></path><circle cx="300" cy="110" r="18"></circle></g><g><rect x="220" y="190" width="160" height="160"></rect><path d="M300 190L380 270L300 350L220 270Z"></path><circle cx="300" cy="270" r="18"></circle></g><g><rect x="380" y="30" width="160" height="160"></rect><path d="M460 30L540 110L460 190L380 110Z"></path><circle cx="460" cy="110" r="18"></circle></g><g><rect x="380" y="190" width="160" height="160"></rect><path d="M460 190L540 270L460 350L380 270Z"></path><circle cx="460" cy="270" r="18"></circle></g></svg><p class="over-pillar">Sensors, actuators &amp; energy</p><h3>Effect of ferroelectric poling on CO<sub>2</sub> sensing in UiO-66/BaTiO<sub>3</sub> composite thin films</h3><p class="over-name">Austine Uwumwonse</p></a></li>
-    </ul>
-  </div>
-</section>
-<p class="over-more"><a class="cta" href="#research">All research <span class="arrow-tile" aria-hidden="true">→</span></a></p>
-<section class="lab-band" aria-labelledby="the-laboratory">
-  <div class="wrap lab-grid">
-    <img src="assets/img/group-july-2026-1021.webp" alt="MeMDRL group members together outdoors, July 2026" width="1021" height="575" loading="lazy" decoding="async" class="fluid">
+  <div class="wrap hero-grid">
     <div>
-      <span class="accent-bar" aria-hidden="true"></span>
-      <p class="kicker">The laboratory</p>
-      <h2 id="the-laboratory">From synthesis to printed devices and measured performance</h2>
-      <p class="note">MeMDRL combines dielectric and piezoelectric characterization, additive deposition, spectroscopy, diffraction, and imaging.</p>
-      <p><a class="cta" href="#facilities">View facilities <span class="arrow-tile" aria-hidden="true">→</span></a></p>
+      <p class="kicker kicker-dark"><a class="kicker-link" href="https://klesse.utsa.edu/" rel="noopener noreferrer">Klesse College</a> · <a class="kicker-link" href="https://klesse.utsa.edu/electrical/" rel="noopener noreferrer">Electrical Engineering</a> · UT San Antonio</p>
+      <h1 id="top-h">Multifunctional Electronic Materials and Devices Research Laboratory</h1>
+      <p class="hero-lead">MeMDRL designs ferroic and multifunctional materials, prints and integrates them with semiconductors, and uses modeling, machine learning, and quantum-informed experiments to turn those materials into sensors, actuators, and low-power electronics.</p>
+      <p class="actions">
+        <a class="btn btn-accent" href="#research">Explore research <span aria-hidden="true">→</span></a>
+        <a class="btn btn-dark" href="#join">Join the group</a>
+        <a class="btn btn-dark" href="#seminar">This week’s seminar</a>
+      </p>
+    </div>
+    <div class="hero-side">
+      <div class="hero-logo"><img src="assets/img/logo-541.webp" alt="MeMDRL logo" width="541" height="520" fetchpriority="high" decoding="async"></div>
+      <div class="hero-frame"><img src="assets/img/group-july-2026-960.webp" alt="MeMDRL group members together outdoors, July 2026" width="960" height="541" fetchpriority="high" decoding="async" class="fluid rounded"></div>
+      <dl class="stats"><div><dt>Established</dt><dd>2007</dd></div><div><dt>Current members</dt><dd>28</dd></div><div><dt>Ph.D. graduates</dt><dd>15</dd></div><div><dt>M.S. graduates</dt><dd>89</dd></div></dl>
     </div>
   </div>
 </section>
 
 <section id="research" class="section" aria-labelledby="research-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">Research</p>
+    <p class="kicker">Research</p>
 <h2 id="research-h">Core strength and active research</h2>
 <p class="lead">Core strength in materials synthesis and nonlinear properties, applied through four pillars: functional ferroics, sensors and energy transduction, printed hybrid microelectronics, and computation for materials discovery.</p>
-</div>
     <figure class="feature feature-split">
       <img src="assets/img/ongoing-research-786.webp" alt="Diagram of MeMDRL core strength (materials synthesis and nonlinear properties) and current research interests" width="786" height="510" loading="lazy" decoding="async" class="fluid framed">
       <figcaption>Research themes describe active areas, not closed contracts. Each pillar lists current student topics; follow a name to that student’s profile.</figcaption>
@@ -1654,12 +1205,9 @@ tr.is-this-week td {
 
 <section id="facilities" class="section tone-mist" aria-labelledby="facilities-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">Facilities</p>
+    <p class="kicker">Facilities</p>
 <h2 id="facilities-h">Laboratory capabilities</h2>
 <p class="lead">MeMDRL supports the full path from powder and ink to electroceramic, crystals, printed or thin-film devices and measured performance. Tools are available to group members after safety training. Collaborators and visitors work with the laboratory by arrangement.</p>
-</div>
     <ul class="grid grid-3">
       <li class="card"><h3 class="h-card">Hybrid additive manufacturing of electronics</h3><div class="rich small"><p>Inkjet, aerosol-jet, and direct-ink writing of functional inks, with ultraviolet, near-infrared, and pulsed-light processing. Used for printed oxides, metals, and multilayer electronic stacks.</p></div></li><li class="card"><h3 class="h-card">Dielectric, pyroelectric, and magnetoelectric measurement</h3><div class="rich small"><p>Capacitance, loss, impedance, and magnetoelectric response from cryogenic to elevated temperature, including measurements under applied magnetic field.</p></div></li><li class="card"><h3 class="h-card">Microwave and environmental testing</h3><div class="rich small"><p>High-frequency network analysis through millimeter-wave bands, together with temperature-humidity environmental chambers for reliability and application-relevant conditions.</p></div></li><li class="card"><h3 class="h-card">Electromechanical and materials testing</h3><div class="rich small"><p>Dynamic mechanical loading, ink and slurry rheology, and routine wet-chemical characterization in support of processing and device packaging.</p></div></li><li class="card"><h3 class="h-card">Ferroic and piezoelectric evaluation</h3><div class="rich small"><p>Polarization, piezoelectric charge response, and impedance spectroscopy for ferroelectric, piezoelectric, and multiferroic ceramics, crystals, films, and composites.</p></div></li><li class="card"><h3 class="h-card">Strain, vibration, and thermal expansion</h3><div class="rich small"><p>Laser vibrometry and dilatometry for small-signal displacement, resonance, and thermal-expansion behavior over a wide temperature range.</p></div></li><li class="card"><h3 class="h-card">Structure and diffraction</h3><div class="rich small"><p>X-ray diffraction for phase identification, structure-property work, and crystal orientation.</p></div></li><li class="card"><h3 class="h-card">Microscopy and nanoscale imaging</h3><div class="rich small"><p>Optical microscopy with heating and cooling stages, scanning electron microscopy with elemental analysis, vibrational spectroscopy, and scanning-probe methods including piezoresponse imaging.</p></div></li><li class="card"><h3 class="h-card">Thin-film deposition</h3><div class="rich small"><p>Magnetron sputtering, thermal evaporation, and ultra-high-vacuum multi-source sputtering for metals, oxides, and device electrodes.</p></div></li><li class="card"><h3 class="h-card">Nanofabrication and patterning</h3><div class="rich small"><p>Maskless lithography, stylus profilometry, sol-gel spin coating, and spray pyrolysis for nanoparticles and conformal coatings.</p></div></li><li class="card"><h3 class="h-card">Electrical probe measurement</h3><div class="rich small"><p>Wafer- and film-level probing, semiconductor parameter analysis, and four-point resistivity measurement.</p></div></li><li class="card"><h3 class="h-card">Optical characterization</h3><div class="rich small"><p>Ultraviolet-visible-near-infrared spectrometry, polarized microscopy, optical spectrum analysis, ellipsometry for index and thickness, and electro-optic coefficient measurement.</p></div></li><li class="card"><h3 class="h-card">Computation and modeling</h3><div class="rich small"><p>Finite-element device and materials modeling, circuit design tools, and scientific analysis software used with experimental work in the laboratory.</p></div></li><li class="card"><h3 class="h-card">Ceramic and sample preparation</h3><div class="rich small"><p>Milling, pressing, polishing, and dicing; high-temperature and vacuum furnaces; plasma etching; and sintering, including microwave-assisted processing.</p></div></li>
     </ul>
@@ -1668,12 +1216,9 @@ tr.is-this-week td {
 
 <section id="people" class="section" aria-labelledby="people-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">People</p>
+    <p class="kicker">People</p>
 <h2 id="people-h">Group members, visitors, and alumni</h2>
 <p class="lead">28 current members. Contact the laboratory through <a class="link" href="#contact">the addresses below</a>.</p>
-</div>
     <section class="group" aria-labelledby="group-PI">
       <h3 id="group-PI">Principal investigators <span class="count">(2)</span></h3>
       <ul class="grid grid-2"><li id="person-ruyan-guo" class="card person">
@@ -1702,7 +1247,7 @@ tr.is-this-week td {
     </section><section class="group" aria-labelledby="group-POSTDOC">
       <h3 id="group-POSTDOC">Postdoctoral researchers <span class="count">(4)</span></h3>
       <ul class="grid grid-3"><li id="person-carlos-acosta" class="card person">
-  <span class="avatar avatar-md"><img src="assets/img/acosta-96.webp" alt="Carlos Acosta" width="96" height="181" loading="lazy" decoding="async" style="object-position:center 20%"></span>
+  <span class="avatar avatar-md"><img src="assets/img/acosta-125.webp" alt="Carlos Acosta" width="125" height="181" loading="lazy" decoding="async" style="object-position:center 20%"></span>
   <div class="person-text">
     <h4>Carlos Acosta, Ph.D.</h4>
     <p class="small muted">Postdoctoral fellow (part-time)</p>
@@ -2868,15 +2413,12 @@ tr.is-this-week td {
 
 <section id="publications" class="section tone-mist" aria-labelledby="publications-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">Publications</p>
+    <p class="kicker">Publications</p>
 <h2 id="publications-h">Publications</h2>
 <p class="lead">The complete bibliography lives on Google Scholar. This section features recent group papers, foundational works, and the dissertations and theses of MeMDRL graduates.</p>
-</div>
     <p class="actions">
-      <a class="btn btn-accent" href="https://scholar.google.com/citations?user=BTDgln0AAAAJ&amp;hl=en" rel="noopener noreferrer">Scholar — Guo</a>
-      <a class="btn btn-accent" href="https://scholar.google.com/citations?user=7Bzuu1YAAAAJ&amp;hl=en" rel="noopener noreferrer">Scholar — Bhalla</a>
+      <a class="btn btn-navy" href="https://scholar.google.com/citations?user=BTDgln0AAAAJ&amp;hl=en" rel="noopener noreferrer">Scholar — Guo</a>
+      <a class="btn btn-outline" href="https://scholar.google.com/citations?user=7Bzuu1YAAAAJ&amp;hl=en" rel="noopener noreferrer">Scholar — Bhalla</a>
       <a class="btn btn-outline" href="memdrl.bib" download>Download BibTeX (64)</a>
     </p>
     <h3 class="sub">Selected papers</h3>
@@ -2991,12 +2533,9 @@ tr.is-this-week td {
 
 <section id="events" class="section" aria-labelledby="events-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">Events</p>
+    <p class="kicker">Events</p>
 <h2 id="events-h">Conferences, meetings, and group seminar</h2>
 <p class="lead">MeMDRL faculty organize and host recurring materials and devices meetings. Group members often present and volunteer.</p>
-</div>
     <section id="seminar" aria-labelledby="seminar-h" class="block">
       <h3 id="seminar-h">Weekly group seminar</h3>
       <p class="muted measure">Internal research seminar with in-person and online options. Guests are welcome; email a team member or a PI to receive email updates. Students interested in presenting should contact their advisor.</p>
@@ -3037,12 +2576,9 @@ tr.is-this-week td {
 
 <section id="news" class="section tone-mist" aria-labelledby="news-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">News</p>
+    <p class="kicker">News</p>
 <h2 id="news-h">Group news and archive</h2>
 <p class="lead">Newest first. Talks and conferences are also listed under <a class="link" href="#events">Events</a>.</p>
-</div>
     <ul class="grid grid-3">
       <li id="news-collaborative-paper-with-universidade-federal-de-uberlandia" class="card news-card">
         
@@ -3103,12 +2639,9 @@ tr.is-this-week td {
 
 <section id="join" class="section" aria-labelledby="join-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">Join</p>
+    <p class="kicker">Join</p>
 <h2 id="join-h">Working with MeMDRL</h2>
 <p class="lead">Openings change with funding. Incoming graduate students must also apply to the appropriate UTSA degree program.</p>
-</div>
     <figure class="feature">
       <img src="assets/img/memdrl-letters-2016-920.webp" alt="MeMDRL group members spelling the laboratory name, April 2016" width="920" height="368" loading="lazy" decoding="async" class="fluid rounded">
       <figcaption>Group members signaling “MeMDRL,” April 2016.</figcaption>
@@ -3138,12 +2671,9 @@ tr.is-this-week td {
 
 <section id="support" class="section tone-mist" aria-labelledby="support-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">Support</p>
+    <p class="kicker">Support</p>
 <h2 id="support-h">Funding, endowment, and acknowledgements</h2>
 <p class="lead">MeMDRL is sustained by named faculty support, competitive awards, university investment, and students and collaborators. Opinions on this page are those of the authors and do not necessarily reflect the views of any sponsor.</p>
-</div>
     <div class="grid grid-support">
       <div class="flow">
         <h3 class="h-sec">Support the MRG Fellowship or the Lab</h3>
@@ -3195,12 +2725,9 @@ tr.is-this-week td {
 
 <section id="contact" class="section" aria-labelledby="contact-h">
   <div class="wrap">
-    <div class="section-head">
-<span class="accent-bar" aria-hidden="true"></span>
-<p class="kicker">Contact</p>
+    <p class="kicker">Contact</p>
 <h2 id="contact-h">Offices and laboratory</h2>
 <p class="lead">Biotechnology Sciences and Engineering Building (BSE), Main Campus. Durango Building (DBB), Downtown Campus. Laboratory visits by arrangement.</p>
-</div>
     <div class="grid grid-2">
       <div class="card">
         <h3>Shipping address</h3>
@@ -3229,12 +2756,12 @@ tr.is-this-week td {
 </section>
 </main>
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-lockup">
+  <div class="wrap footer-grid">
+    <div>
       <p class="footer-brand">MeMDRL</p>
       <p class="small">Multifunctional Electronic Materials and Devices Research Laboratory<br>Klesse College of Engineering and Integrated Design<br>The University of Texas at San Antonio</p>
     </div>
-    <div class="footer-notes">
+    <div>
       <p class="small">MeMDRL acknowledges the Robert E. Clarke, Jr. Distinguished Professorship in Electrical Engineering, the National Science Foundation, the U.S. Department of Defense, and UT San Antonio. Opinions on this site are those of the authors and do not necessarily reflect the views of the sponsors.</p>
       <p class="small">Single-page edition, generated 9 November 2026. This page is hosted on GitHub Pages and is not an official UTSA web page. Current official lab page: <a class="link link-dark" href="https://ceid.utsa.edu/MeMDRL/" rel="noopener noreferrer">ceid.utsa.edu/MeMDRL</a>.</p>
     </div>
